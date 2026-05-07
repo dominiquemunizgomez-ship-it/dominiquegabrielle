@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominique Gabrielle — Screenwriter & Development Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F5F0;
+  --bg-alt:#EFEBE4;
+  --black:#0D0D0D;
+  --dark:#1E1E1E;
+  --gray:#5C5C5C;
+  --mid:#9A9490;
+  --rule:#D8D3CA;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--black);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--black);color:var(--bg)}
+.page{display:none;min-height:100vh}.page.active{display:block}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(248,245,240,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav-name{font-family:var(--serif);font-size:1rem;font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--black);cursor:pointer;background:none;border:none}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links button{font-size:0.7rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;color:var(--gray);cursor:pointer;background:none;border:none;font-family:var(--sans);transition:color 0.2s;padding:0}
+.nav-links button:hover,.nav-links button.active{color:var(--black)}
+
+/* ── SECTIONS ── */
+section{padding:7rem 4rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:0.63rem;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:1rem}
+.section-title{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:300;line-height:1.05}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 4rem 6rem;border-bottom:1px solid var(--rule)}
+.hero-inner{width:100%;max-width:1200px}
+.hero-eyebrow{font-size:0.68rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:1.75rem}
+.hero-name{font-family:var(--serif);font-size:clamp(5rem,12vw,10.5rem);font-weight:300;line-height:0.9;letter-spacing:-0.02em;color:var(--black);margin-bottom:3rem}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.85rem);font-weight:300;font-style:italic;color:var(--gray);line-height:1.45;max-width:520px}
+.hero-meta{text-align:right;flex-shrink:0}
+.hero-meta p{font-size:0.75rem;color:var(--mid);line-height:2;letter-spacing:0.04em}
+.hero-scroll{display:inline-flex;align-items:center;gap:0.6rem;margin-top:1.5rem;font-size:0.68rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;color:var(--black);border-bottom:1px solid currentColor;padding-bottom:0.2rem;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans);transition:opacity 0.2s}
+.hero-scroll:hover{opacity:0.5}
+
+/* ── ABOUT ── */
+#about{background:var(--bg-alt);border-bottom:1px solid var(--rule)}
+.about-grid{display:grid;grid-template-columns:1fr 1.65fr;gap:7rem;align-items:start}
+.about-left .section-title{margin-bottom:2.5rem;line-height:1.15}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.45rem}
+.tag{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--rule);padding:0.3rem 0.7rem;color:var(--gray)}
+.about-bio p{font-size:1.01rem;line-height:1.9;color:var(--dark);margin-bottom:1.6rem}
+.about-bio p:last-child{margin-bottom:0}
+.about-bio strong{font-weight:500;color:var(--black)}
+.about-availability{display:inline-block;margin-top:2.5rem;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;border:1px solid var(--black);padding:0.5rem 1rem;color:var(--black)}
+
+/* ── WRITING / PROJECTS ── */
+#writing{border-bottom:1px solid var(--rule)}
+.writing-header{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:3rem;border-bottom:1px solid var(--rule)}
+.writing-intro{font-size:0.92rem;line-height:1.85;color:var(--gray)}
+.project-card{display:grid;grid-template-columns:60px 1fr auto;gap:3rem;align-items:start;padding:3.5rem 0;border-bottom:1px solid var(--rule)}
+.project-card:first-of-type{border-top:1px solid var(--rule)}
+.project-num{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--rule);font-style:italic;padding-top:0.3rem}
+.project-type{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;font-style:italic;line-height:1.1;color:var(--black);margin-bottom:1.25rem}
+.project-logline{font-size:0.95rem;line-height:1.8;color:var(--gray);max-width:580px}
+.project-logline.italic{font-style:italic;color:var(--mid)}
+.project-badge{flex-shrink:0;font-size:0.62rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;border:1px solid var(--black);padding:0.45rem 0.85rem;color:var(--black);white-space:nowrap;margin-top:0.3rem;display:inline-block}
+.writing-note{margin-top:3.5rem;font-size:0.8rem;color:var(--mid);font-style:italic;display:flex;align-items:center;gap:1rem}
+.writing-note::before{content:'';display:block;width:32px;height:1px;background:var(--mid);flex-shrink:0}
+
+/* ── CREDITS ── */
+#credits{background:var(--bg-alt);border-bottom:1px solid var(--rule)}
+.credits-intro{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:end;margin-bottom:4rem}
+.credits-subtitle{font-size:0.92rem;line-height:1.85;color:var(--gray)}
+.credits-table{border-top:1px solid var(--rule)}
+.credit-row{display:grid;grid-template-columns:2fr 1.1fr 1.8fr 0.6fr;gap:2rem;align-items:center;padding:1.4rem 0;border-bottom:1px solid var(--rule);transition:background 0.15s}
+.credit-row:hover{background:rgba(0,0,0,0.02)}
+.credit-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;font-style:italic;color:var(--black)}
+.credit-format{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.credit-role{font-size:0.82rem;font-weight:300;color:var(--dark)}
+.credit-year{font-size:0.78rem;font-weight:300;color:var(--mid);text-align:right}
+
+/* ── EXPERIENCE ── */
+#experience{border-bottom:1px solid var(--rule)}
+.experience-header{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:end;padding-bottom:4rem;border-bottom:1px solid var(--rule);margin-bottom:4rem}
+.experience-intro{font-size:0.92rem;line-height:1.85;color:var(--gray)}
+.experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.exp-item{padding:3rem 3rem 3rem 0;border-bottom:1px solid var(--rule)}
+.exp-item:nth-child(even){padding:3rem 0 3rem 3rem;border-left:1px solid var(--rule)}
+.exp-item:last-child,.exp-item:nth-last-child(2):nth-child(odd){border-bottom:none}
+.exp-org{font-family:var(--serif);font-size:1.5rem;font-weight:400;line-height:1.25;margin-bottom:0.4rem}
+.exp-role-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);margin-bottom:1.25rem;display:block}
+.exp-desc{font-size:0.88rem;line-height:1.8;color:var(--gray)}
+.exp-date{font-size:0.72rem;color:var(--mid);margin-top:1.25rem}
+
+/* ── CONTACT ── */
+#contact{background:var(--black);color:var(--bg)}
+#contact .section-label{color:rgba(248,245,240,0.35)}
+#contact .section-title{color:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;margin-top:4.5rem;align-items:start}
+.contact-statement{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.1rem);font-weight:300;font-style:italic;line-height:1.5;color:rgba(248,245,240,0.6)}
+.contact-statement strong{color:var(--bg);font-style:normal;font-weight:400}
+.contact-details{display:flex;flex-direction:column;gap:2.5rem}
+.contact-entry-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(248,245,240,0.35);display:block;margin-bottom:0.4rem}
+.contact-entry a{font-size:0.95rem;font-weight:300;color:var(--bg);text-decoration:none;border-bottom:1px solid rgba(248,245,240,0.25);padding-bottom:0.15rem;transition:border-color 0.2s;display:inline-block}
+.contact-entry a:hover{border-color:var(--bg)}
+.contact-note{font-size:0.78rem;line-height:1.75;color:rgba(248,245,240,0.35);margin-top:1rem}
+
+footer{background:var(--black);padding:1.75rem 4rem;border-top:1px solid rgba(248,245,240,0.08);display:flex;justify-content:space-between;align-items:center}
+footer span{font-size:0.68rem;letter-spacing:0.08em;color:rgba(248,245,240,0.25)}
+
+/* ── JOURNAL PAGE ── */
+#journal-hero{min-height:42vh;display:flex;align-items:flex-end;padding:0 4rem 5rem;border-bottom:1px solid var(--rule)}
+.journal-hero-inner{max-width:1100px;margin:0 auto;width:100%}
+.journal-hero-title{font-family:var(--serif);font-size:clamp(4rem,9vw,8rem);font-weight:300;line-height:0.95;margin-bottom:1.5rem}
+.journal-hero-sub{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:300;font-style:italic;color:var(--gray);max-width:540px;line-height:1.5}
+
+#filter-bar{position:sticky;top:63px;z-index:50;background:rgba(248,245,240,0.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:0 4rem}
+.filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:0;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{font-family:var(--sans);font-size:0.68rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid);background:none;border:none;padding:1.2rem 1.75rem 1.2rem 0;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color 0.2s,border-color 0.2s}
+.filter-btn:hover{color:var(--gray)}.filter-btn.active{color:var(--black);border-bottom-color:var(--black)}
+
+#cards-section{padding:5rem 4rem}
+.cards-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.writing-card{padding:2.5rem 2.5rem 2rem;border:1px solid var(--rule);margin:-1px 0 0 -1px;display:flex;flex-direction:column;transition:background 0.15s}
+.writing-card:hover{background:var(--bg-alt)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.card-category{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
+.card-date{font-size:0.68rem;color:var(--mid)}
+.card-title{font-family:var(--serif);font-size:clamp(1.25rem,1.8vw,1.6rem);font-weight:400;font-style:italic;line-height:1.2;color:var(--black);margin-bottom:1rem;flex-grow:1}
+.card-excerpt{font-size:0.83rem;line-height:1.75;color:var(--gray);margin-bottom:2rem}
+.card-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center}
+.card-action{font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--black);background:none;border:none;border-bottom:1px solid var(--black);padding-bottom:0.15rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:var(--sans);transition:opacity 0.2s}
+.card-action:hover{opacity:0.5}
+.card-request{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);font-style:italic}
+.cards-empty{grid-column:span 3;text-align:center;padding:6rem 0}
+.cards-empty p{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--mid)}
+
+/* add form for journal */
+.add-panel{max-width:1100px;margin:0 auto;padding:3rem 0 0;border-top:1px solid var(--rule)}
+.add-form{display:none;padding:2rem;background:var(--bg-alt);border:1px solid var(--rule);margin-top:1.5rem}
+.add-form.open{display:block}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray)}
+.form-group input,.form-group select,.form-group textarea{background:var(--bg);border:1px solid var(--rule);color:var(--black);font-family:var(--sans);font-size:0.83rem;padding:0.7rem 0.9rem;outline:none;transition:border-color 0.2s;width:100%;font-weight:300}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--black)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-actions{display:flex;gap:1rem;margin-top:1.4rem;align-items:center}
+.btn-primary{display:inline-block;padding:0.75rem 1.8rem;border:1px solid var(--black);color:var(--black);cursor:pointer;background:none;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;transition:all 0.2s;text-decoration:none}
+.btn-primary:hover{background:var(--black);color:var(--bg)}
+.btn-ghost{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);cursor:pointer;background:none;border:none;font-family:var(--sans);transition:color 0.2s}
+.btn-ghost:hover{color:var(--black)}
+.entry-delete{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(90,90,90,0.4);cursor:pointer;background:none;border:none;font-family:var(--sans);margin-top:0.8rem;display:block;transition:color 0.2s}
+.entry-delete:hover{color:#bf6060}
+
+/* ── READING MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(13,13,13,0.8);z-index:200;align-items:flex-start;justify-content:center;padding:5vh 2rem 5rem;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal-inner{background:var(--bg);width:100%;max-width:680px;padding:4rem;position:relative;margin:auto}
+.modal-close{position:absolute;top:1.75rem;right:1.75rem;font-size:1.2rem;color:var(--mid);background:none;border:none;cursor:pointer;transition:color 0.2s}
+.modal-close:hover{color:var(--black)}
+.modal-cat{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:1rem}
+.modal-title{font-family:var(--serif);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;font-style:italic;line-height:1.15;color:var(--black);margin-bottom:0.5rem}
+.modal-date{font-size:0.72rem;color:var(--mid);display:block;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.modal-body p{font-size:1.05rem;line-height:1.9;color:var(--dark);font-family:var(--serif);font-weight:300;margin-bottom:1.5rem}
+.modal-body p:last-child{margin-bottom:0}
+
+/* current projects light */
+.proj-card{padding:2.5rem;background:var(--bg-alt);border:1px solid var(--rule);margin-bottom:2px}
+.proj-status{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.8rem;display:inline-block;padding:0.25rem 0.7rem}
+.status-dev{color:#3a7a3a;background:rgba(58,122,58,0.08)}
+.status-prep{color:#7a5a1a;background:rgba(122,90,26,0.08)}
+.status-post{color:#1a4a7a;background:rgba(26,74,122,0.08)}
+.proj-title{font-family:var(--serif);font-size:1.55rem;font-style:italic;color:var(--black);margin-bottom:0.4rem}
+.proj-type{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem}
+.proj-desc{font-size:0.84rem;color:var(--gray);line-height:1.76;max-width:580px;margin-bottom:1.4rem}
+.nda-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.nda-note{font-size:0.66rem;color:var(--mid);font-style:italic}
+
+/* NDA form (light) */
+.nda-overlay{display:none;position:fixed;inset:0;background:rgba(13,13,13,0.7);z-index:300;align-items:center;justify-content:center}
+.nda-overlay.open{display:flex}
+.nda-box{background:var(--bg);border:1px solid var(--rule);padding:3rem;max-width:460px;width:90%;position:relative}
+.nda-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--mid);font-size:1.1rem;cursor:pointer}
+.nda-label{font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:0.6rem}
+.nda-title{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--black);margin-bottom:0.5rem}
+.nda-sub{font-size:0.8rem;color:var(--gray);line-height:1.7;margin-bottom:2rem}
+.nda-form{display:flex;flex-direction:column;gap:0.9rem}
+.nda-input{background:var(--bg-alt);border:1px solid var(--rule);color:var(--black);font-family:var(--sans);font-size:0.83rem;padding:0.7rem 0.9rem;outline:none;transition:border-color 0.2s;width:100%}
+.nda-input:focus{border-color:var(--black)}
+.nda-fnote{font-size:0.68rem;color:var(--mid);line-height:1.6;font-style:italic}
+.nda-success{display:none;text-align:center;padding:1rem 0}
+.nda-success-icon{font-size:2rem;color:var(--black);margin-bottom:0.8rem}
+.nda-success p{font-family:var(--serif);font-size:1.2rem;color:var(--black)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--rule)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:1.25rem 2rem}.nav-links{display:none}
+  section{padding:5rem 2rem}
+  #hero{padding:0 2rem 4.5rem}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.5rem}.hero-meta{text-align:left}
+  .about-grid,.writing-header,.credits-intro,.experience-header,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .project-card{grid-template-columns:1fr;gap:1rem}.project-num{display:none}
+  .credit-row{grid-template-columns:1fr 1fr;row-gap:0.3rem}.credit-role{grid-column:span 2}.credit-year{text-align:left}
+  .experience-grid{grid-template-columns:1fr}
+  .exp-item,.exp-item:nth-child(even){padding:2.5rem 0;border-left:none;border-bottom:1px solid var(--rule)}
+  .exp-item:last-child{border-bottom:none}
+  .cards-grid{grid-template-columns:1fr 1fr}.cards-empty{grid-column:span 2}
+  #journal-hero{padding:0 2rem 4rem;min-height:38vh}
+  #filter-bar{padding:0 2rem}
+  #cards-section{padding:4rem 2rem}
+  .add-panel{padding:3rem 0 0}
+  footer{padding:1.5rem 2rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
+@media(max-width:600px){
+  .hero-name{font-size:3.75rem}
+  .cards-grid{grid-template-columns:1fr}.cards-empty{grid-column:1}
+  .credit-row{grid-template-columns:1fr}.credit-role{grid-column:1}.credit-year{text-align:left}
+  .form-row{grid-template-columns:1fr}
+  .modal-inner{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="nav-name" id="nav-name" onclick="showPage('home')"></button>
+  <ul class="nav-links">
+    <li><button onclick="goTo('home','about')">About</button></li>
+    <li><button onclick="goTo('home','writing')">Writing</button></li>
+    <li><button onclick="goTo('home','credits')">Credits</button></li>
+    <li><button onclick="goTo('home','experience')">Experience</button></li>
+    <li><button onclick="showPage('journal')" id="nav-journal">Journal</button></li>
+    <li><button onclick="goTo('home','contact')">Contact</button></li>
+  </ul>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow" id="hero-eyebrow"></span>
+      <h1 class="hero-name" id="hero-name-display"></h1>
+      <div class="hero-bottom">
+        <p class="hero-tagline" id="hero-tagline"></p>
+        <div class="hero-meta">
+          <div id="hero-meta"></div>
+          <button class="hero-scroll" onclick="goTo('home','writing')">View Work →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="section-label">About</span>
+          <h2 class="section-title reveal" id="about-headline"></h2>
+          <div class="about-tags reveal" id="about-tags"></div>
+        </div>
+        <div class="about-bio reveal" id="about-bio"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="section-inner">
+      <div class="writing-header">
+        <div>
+          <span class="section-label">Original Work</span>
+          <h2 class="section-title">Writing</h2>
+        </div>
+        <p class="writing-intro">Stories rooted in specific places and real people — written to resonate far beyond their origins. Available for commissions, adaptations, and co-development in English and Spanish.</p>
+      </div>
+      <div id="projects-list"></div>
+      <p class="writing-note">Full scripts, treatments, and writing samples available on request.</p>
+    </div>
+  </section>
+
+  <section id="credits">
+    <div class="section-inner">
+      <div class="credits-intro">
+        <div>
+          <span class="section-label">Production</span>
+          <h2 class="section-title">Selected<br>Credits</h2>
+        </div>
+        <p class="credits-subtitle">Seven years of on-set and development experience across feature film, scripted series, documentary, and reality television — working alongside some of the industry's leading studios, broadcasters, and production companies.</p>
+      </div>
+      <div class="credits-table reveal" id="credits-table"></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-inner">
+      <div class="experience-header">
+        <div>
+          <span class="section-label">Development & Education</span>
+          <h2 class="section-title">Experience</h2>
+        </div>
+        <p class="experience-intro">A dual track in creative development and formal screenwriting training — built to bridge the gap between what a story needs on the page and what it needs to move forward in the industry.</p>
+      </div>
+      <div class="experience-grid reveal" id="experience-grid"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Let's Work Together</h2>
+      <div class="contact-grid">
+        <p class="contact-statement reveal" id="contact-statement"></p>
+        <div class="contact-details reveal">
+          <div class="contact-entry">
+            <span class="contact-entry-label">Email</span>
+            <a href="#" id="contact-email"></a>
+          </div>
+          <div class="contact-entry">
+            <span class="contact-entry-label">LinkedIn</span>
+            <a href="#" id="contact-linkedin" target="_blank" rel="noopener">LinkedIn Profile</a>
+          </div>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span id="footer-copy"></span>
+    <span id="footer-tagline"></span>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     JOURNAL PAGE
+══════════════════════════════════════════════════════════ -->
+<div id="page-journal" class="page">
+
+  <section id="journal-hero">
+    <div class="journal-hero-inner">
+      <h1 class="journal-hero-title">Journal</h1>
+      <p class="journal-hero-sub">Essays on craft, short fiction, and writing about film.</p>
+    </div>
+  </section>
+
+  <div id="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Craft">Craft</button>
+      <button class="filter-btn" data-filter="Short Stories">Short Stories</button>
+      <button class="filter-btn" data-filter="On Film">On Film</button>
+      <button class="filter-btn" data-filter="Current Projects">Current Projects</button>
+    </div>
+  </div>
+
+  <section id="cards-section">
+    <div class="cards-grid" id="cards-grid"></div>
+
+    <!-- Add new entry -->
+    <div class="add-panel" style="margin-top:4rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0">
+        <span style="font-size:0.72rem;color:var(--mid)">Add a new entry to your journal</span>
+        <button class="btn-primary" style="font-size:0.62rem;padding:0.55rem 1.2rem" onclick="toggleAddForm('add-entry')">+ Add Entry</button>
+      </div>
+      <div class="add-form" id="add-entry">
+        <div class="form-row">
+          <div class="form-group"><label>Title</label><input type="text" id="entry-title" placeholder="Entry title"></div>
+          <div class="form-group"><label>Date</label><input type="text" id="entry-date" placeholder="e.g. June 2025"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category</label>
+            <select id="entry-cat">
+              <option value="Craft">Craft</option>
+              <option value="On Film">On Film</option>
+              <option value="Short Stories">Short Stories</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Excerpt (shows on card)</label><input type="text" id="entry-excerpt" placeholder="One or two sentences..."></div>
+        </div>
+        <div class="form-group" style="margin-bottom:1.1rem"><label>Full text (opens in reader)</label><textarea id="entry-content" style="min-height:140px" placeholder="Paste your full essay, article, or story here..."></textarea></div>
+        <div class="form-actions">
+          <button class="btn-primary" onclick="publishEntry()">Publish</button>
+          <button class="btn-ghost" onclick="toggleAddForm('add-entry')">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Add current project -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--rule)">
+        <span style="font-size:0.72rem;color:var(--mid)">Add a current project</span>
+        <button class="btn-primary" style="font-size:0.62rem;padding:0.55rem 1.2rem" onclick="toggleAddForm('add-proj')">+ Add Project</button>
+      </div>
+      <div class="add-form" id="add-proj">
+        <div class="form-row">
+          <div class="form-group"><label>Title</label><input type="text" id="proj-title" placeholder="Title or working title"></div>
+          <div class="form-group"><label>Type</label><input type="text" id="proj-type" placeholder="e.g. Feature Film · Original Screenplay"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Status</label>
+            <select id="proj-status"><option value="dev">In Development</option><option value="prep">In Pre-Production</option><option value="post">In Post</option></select>
+          </div>
+          <div class="form-group"><label>Availability note</label><input type="text" id="proj-note" placeholder="e.g. Script available on request"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:1.1rem"><label>Short description</label><textarea id="proj-desc" placeholder="A brief, non-spoiling description..."></textarea></div>
+        <div class="form-actions">
+          <button class="btn-primary" onclick="publishProject()">Add Project</button>
+          <button class="btn-ghost" onclick="toggleAddForm('add-proj')">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--rule)">
+    <span id="journal-footer-copy"></span>
+    <span id="journal-footer-tagline"></span>
+  </footer>
+</div>
+
+
+<!-- READING MODAL -->
+<div class="modal-overlay" id="reading-modal" onclick="if(event.target===this)closeReading()">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeReading()">✕</button>
+    <span class="modal-cat" id="modal-cat"></span>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <span class="modal-date" id="modal-date"></span>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- NDA MODAL -->
+<div class="nda-overlay" id="nda-overlay" onclick="if(event.target===this)closeNDA()">
+  <div class="nda-box">
+    <button class="nda-close" onclick="closeNDA()">✕</button>
+    <span class="nda-label">Confidential Enquiry</span>
+    <h2 class="nda-title" id="nda-proj-name"></h2>
+    <p class="nda-sub">To receive further details, share your name, company, and contact. All information shared under mutual NDA.</p>
+    <div class="nda-form" id="nda-form">
+      <input class="nda-input" type="text" id="nda-name" placeholder="Your name">
+      <input class="nda-input" type="text" id="nda-company" placeholder="Company / organisation">
+      <input class="nda-input" type="email" id="nda-email" placeholder="Email address">
+      <input class="nda-input" type="text" id="nda-role" placeholder="Your role (optional)">
+      <p class="nda-fnote">Information shared regarding this project is confidential and not to be disclosed without written consent.</p>
+      <button class="btn-primary" style="width:100%;text-align:center" onclick="submitNDA()">Send Request</button>
+    </div>
+    <div class="nda-success" id="nda-success">
+      <div class="nda-success-icon">✓</div>
+      <p>Request sent. Dominique will be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   ╔══════════════════════════════════════════════════════════╗
+   ║         EDIT YOUR CONTENT HERE                          ║
+   ║  Change the text between quotes to update the site.     ║
+   ║  Do not edit anything below the closing }; of CONTENT   ║
+   ╚══════════════════════════════════════════════════════════╝
+════════════════════════════════════════════════════════════════ */
+const CONTENT = {
+
+  site: {
+    name:      "Dominique Gabrielle",
+    tagline:   "Screenwriter & Development Executive",
+    email:     "dominique.munizgomez@gmail.com",
+    linkedin:  "https://www.linkedin.com/in/dominique-muniz-gomez-1753b7127/",
+    copyright: "2025 Dominique Gabrielle"
+  },
+
+  hero: {
+    eyebrow:  "Screenwriter & Development Executive",
+    tagline:  "Dominican writer and development executive with credits across MGM, Disney, Hulu, and the BBC — working across the international film and television industry.",
+    meta:     ["Dominican Republic", "Feature Film · Television · Documentary", "MGM · Disney · Hulu · BBC"]
+  },
+
+  about: {
+    headline:   "Writer.\nProducer.\nCollaborator.",
+    tags: [
+      "Series Development", "Feature Screenwriting", "Script Doctoring",
+      "Pitch Development", "Above-the-Line PA",
+      "English", "Spanish", "Italian"
+    ],
+    paragraphs: [
+      "I develop stories that live at the intersection of <em>character and consequence</em> — grounded in real human experience, built for the screen.",
+      "With credits spanning studio features, premium drama, and documentary, I bring both creative authority and production fluency to every project. My background is bilingual and cross-cultural — I have worked in Santo Domingo, London, New York, and Rome — which shapes the kind of stories I am drawn to and the way I build them.",
+      "I am most effective in environments where the writing room and the production office are in close conversation. Whether developing a series pitch, script-doctoring a feature, or coordinating above-the-line talent, I keep one eye on the page and one on what is actually possible.",
+      "Currently seeking development, writing, and creative production roles across the international industry."
+    ]
+  },
+
+  projects: [
+    {
+      number: "01",
+      type:   "Feature Film · Original Screenplay · Dominican Republic",
+      title:  "Los Cuatro Fantásticos",
+      // Replace the placeholder below with your real logline
+      logline: "Blanca and Raúl have built a life full of love around their four children. But when crushing debt, an unrelenting drought, and dwindling resources push them to the breaking point, a couple named Germina and Michael arrive with an offer that seems like the only way out — money, in exchange for one of their children. They say yes. David is gone. What follows is an intimate portrait of a family learning to live with a wound they chose to inflict on themselves — navigating grief, guilt, and the silence that grows between people who share an unbearable secret. Los Cuatro Fantásticos asks what it truly means to keep a family together: is it love that holds them, or the security that makes love possible?",
+      loglineItalic: false,
+      status: "Sold · In Development"
+    }
+    // Add more: { number:"02", type:"...", title:"...", logline:"...", loglineItalic:false, status:"..." }
+  ],
+
+  credits: [
+    { title:"Coolie",           format:"Drama Series",               role:"Production Assistant — Cast Support",   year:"2023–2024" },
+    { title:"A Thousand Blows", format:"Drama Series · Hulu",        role:"Production Assistant — Cast #1",        year:"2023"      },
+    { title:"Survivor UK",      format:"Reality Series · BBC",       role:"2nd Assistant Director",                year:"2023"      },
+    { title:"Roadhouse",        format:"Feature Film · MGM",         role:"Above-the-Line Production Assistant",   year:"2022"      },
+    { title:"Saint X",          format:"TV Series · Disney+ / Hulu", role:"Production Assistant",                  year:"2022"      },
+    { title:"Ella",             format:"Independent Film",           role:"Personal Assistant to Director",        year:"2022"      },
+    { title:"20 Mil Millones",  format:"Documentary",                role:"Assistant to the Director",             year:"2021"      },
+    { title:"Río Yaque",        format:"Documentary",                role:"Production Assistant",                  year:"2019"      }
+  ],
+
+  experience: [
+    { org:"Filmicana",                          role:"Project Development Executive",       location:"New York",           desc:"Development executive at a company focused on Latinx stories. Reading submissions, building pitches, and shaping projects toward market-ready status. Responsibilities span project evaluation, script analysis, and supporting IP from concept through packaging.",      date:"2024 — Present" },
+    { org:"Castello Errante Residenza",         role:"Resident Production Organiser",       location:"Italy",              desc:"Selected as one of the resident production organisers for this European residency programme — overseeing production logistics and supporting the development of projects within the creative cohort.",                                                                   date:"2025"           },
+    { org:"Nuova Accademia di Belle Arti",      role:"MA Screenwriting for Series",         location:"Rome, Italy",        desc:"Postgraduate specialisation in long-form series screenwriting at one of Italy's leading arts academies. Focus on narrative architecture, character development, genre, and international storytelling conventions.",                                                    date:"2024–2025"      },
+    { org:"Instituto Tecnológico de S.D.",      role:"BA Film & Audiovisual Communication", location:"Dominican Republic", desc:"Foundation degree in film theory, production practice, and audiovisual storytelling at the Dominican Republic's leading technological university.",                                                                                                                  date:"2016–2020"      }
+  ],
+
+  contact: {
+    statement: "Open to <strong>development</strong>, <strong>writing</strong>, and <strong>creative production</strong> roles in the UK and internationally — bringing both page-level craft and floor-level production intelligence.",
+    note:      "Based in the Dominican Republic. Open to relocation and available for remote development work."
+  },
+
+  // ── Journal entries ──────────────────────────────────────────
+  // Add your essays, articles, and stories here.
+  // category options: "Craft" | "On Film" | "Short Stories"
+  // Duplicate a block and fill it in to add a new entry.
+  writing: [
+    // {
+    //   category: "Craft",
+    //   date:     "May 2025",
+    //   title:    "Your Entry Title",
+    //   excerpt:  "One or two sentences shown on the card.",
+    //   content:  `Your full essay or story goes here.
+    //
+    // A blank line between paragraphs creates a new paragraph in the reader.`
+    // },
+  ],
+
+  // Current projects shown on Journal > Current Projects filter
+  journalProjects: [
+    {
+      title:  "Los Cuatro Fantásticos",
+      type:   "Feature Film · Original Screenplay",
+      status: "dev",
+      desc:   "A character-driven feature set in Santo Domingo, sold to a private Dominican producer. Full script and development materials available on request.",
+      note:   "Full script available under NDA"
+    }
+  ]
+
+};
+/* ════════════════════════════════════════════════════════════════
+   END OF CONTENT — do not edit below this line
+════════════════════════════════════════════════════════════════ */
+
+
+/* ── ROUTING ── */
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+  if(name==='journal') document.getElementById('nav-journal').classList.add('active');
+  setTimeout(initReveal,80);
+}
+function goTo(page,section){
+  showPage(page);
+  setTimeout(()=>{ const el=document.getElementById(section); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); },120);
+}
+
+/* ── REVEAL ── */
+function initReveal(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*60); obs.unobserve(e.target); } });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(r=>obs.observe(r));
+}
+
+/* ── FILTER ── */
+let currentFilter='all';
+function setFilter(filter){
+  currentFilter=filter;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+  renderCards();
+}
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>setFilter(btn.dataset.filter));
+});
+
+/* ── READING MODAL ── */
+function openReading(title,date,cat,content){
+  document.getElementById('modal-cat').textContent=cat;
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-date').textContent=date;
+  document.getElementById('modal-body').innerHTML=content.split(/\n\n+/).map(p=>`<p>${p.trim()}</p>`).join('');
+  const m=document.getElementById('reading-modal');
+  m.classList.add('open'); m.scrollTop=0; document.body.style.overflow='hidden';
+}
+function closeReading(){ document.getElementById('reading-modal').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ── NDA ── */
+function openNDA(title){
+  document.getElementById('nda-proj-name').textContent=title;
+  document.getElementById('nda-form').style.display='flex';
+  document.getElementById('nda-success').style.display='none';
+  ['nda-name','nda-company','nda-email','nda-role'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('nda-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeNDA(){ document.getElementById('nda-overlay').classList.remove('open'); document.body.style.overflow=''; }
+function submitNDA(){
+  const name=document.getElementById('nda-name').value.trim();
+  const email=document.getElementById('nda-email').value.trim();
+  if(!name||!email){ alert('Please enter your name and email.'); return; }
+  const project=document.getElementById('nda-proj-name').textContent;
+  const company=document.getElementById('nda-company').value.trim();
+  const role=document.getElementById('nda-role').value.trim();
+  const body=`Name: ${name}\nCompany: ${company||'—'}\nRole: ${role||'—'}\nEmail: ${email}\n\nProject: ${project}\n\nI am interested in receiving further information about this project under NDA.`;
+  window.location.href=`mailto:${CONTENT.site.email}?subject=${encodeURIComponent('NDA Request: '+project)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('nda-form').style.display='none';
+  document.getElementById('nda-success').style.display='block';
+}
+
+/* ── ADD FORM ── */
+function toggleAddForm(id){
+  const f=document.getElementById(id);
+  f.classList.toggle('open');
+  if(f.classList.contains('open')) f.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ── PUBLISH ENTRY ── */
+function publishEntry(){
+  const title=document.getElementById('entry-title').value.trim();
+  if(!title){ alert('Please enter a title.'); return; }
+  const entry={
+    id:'e'+Date.now(),
+    title,
+    date:document.getElementById('entry-date').value.trim()||new Date().toLocaleDateString('en-GB',{month:'long',year:'numeric'}),
+    category:document.getElementById('entry-cat').value,
+    excerpt:document.getElementById('entry-excerpt').value.trim(),
+    content:document.getElementById('entry-content').value.trim(),
+    ts:Date.now()
+  };
+  const stored=JSON.parse(localStorage.getItem('dg_light_entries')||'[]');
+  stored.unshift(entry);
+  localStorage.setItem('dg_light_entries',JSON.stringify(stored));
+  ['entry-title','entry-date','entry-excerpt','entry-content'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('add-entry').classList.remove('open');
+  renderCards();
+}
+
+/* ── PUBLISH PROJECT ── */
+function publishProject(){
+  const title=document.getElementById('proj-title').value.trim();
+  if(!title){ alert('Please enter a project title.'); return; }
+  const statusMap={dev:['In Development','status-dev'],prep:['In Pre-Production','status-prep'],post:['In Post','status-post']};
+  const sv=document.getElementById('proj-status').value;
+  const [statusText,statusClass]=statusMap[sv];
+  const proj={
+    id:'p'+Date.now(),
+    title,
+    type:document.getElementById('proj-type').value.trim(),
+    desc:document.getElementById('proj-desc').value.trim(),
+    note:document.getElementById('proj-note').value.trim()||'Further details shared under NDA',
+    statusText,statusClass,ts:Date.now()
+  };
+  const stored=JSON.parse(localStorage.getItem('dg_light_projects')||'[]');
+  stored.unshift(proj);
+  localStorage.setItem('dg_light_projects',JSON.stringify(stored));
+  ['proj-title','proj-type','proj-desc','proj-note'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('proj-status').value='dev';
+  document.getElementById('add-proj').classList.remove('open');
+  renderCards();
+}
+
+/* ── DELETE ── */
+function deleteEntry(id){
+  if(!confirm('Delete this entry? This cannot be undone.')) return;
+  const stored=JSON.parse(localStorage.getItem('dg_light_entries')||'[]');
+  localStorage.setItem('dg_light_entries',JSON.stringify(stored.filter(e=>e.id!==id)));
+  renderCards();
+}
+function deleteProject(id){
+  if(!confirm('Delete this project? This cannot be undone.')) return;
+  const stored=JSON.parse(localStorage.getItem('dg_light_projects')||'[]');
+  localStorage.setItem('dg_light_projects',JSON.stringify(stored.filter(p=>p.id!==id)));
+  renderCards();
+}
+
+/* ── RENDER CARDS ── */
+function renderCards(){
+  const grid=document.getElementById('cards-grid');
+  const storedEntries=JSON.parse(localStorage.getItem('dg_light_entries')||'[]');
+  const entries=[...(CONTENT.writing||[]),...storedEntries];
+  const userProjects=JSON.parse(localStorage.getItem('dg_light_projects')||'[]');
+
+  let html='';
+
+  if(currentFilter==='all'||currentFilter==='Current Projects'){
+    // Seeded projects from CONTENT
+    CONTENT.journalProjects.forEach(p=>{
+      const statusMap={dev:'In Development',prep:'In Pre-Production',post:'In Post'};
+      html+=`<div class="proj-card">
+        <span class="proj-status ${p.status==='dev'?'status-dev':p.status==='prep'?'status-prep':'status-post'}">${statusMap[p.status]||'In Development'}</span>
+        <div class="proj-title">${p.title}</div>
+        ${p.type?`<div class="proj-type">${p.type}</div>`:''}
+        ${p.desc?`<p class="proj-desc">${p.desc}</p>`:''}
+        <div class="nda-row">
+          <button class="btn-primary" style="font-size:0.62rem;padding:0.55rem 1.2rem" onclick="openNDA(${JSON.stringify(p.title)})">Request Information</button>
+          <span class="nda-note">${p.note}</span>
+        </div>
+      </div>`;
+    });
+    userProjects.forEach(p=>{
+      html+=`<div class="proj-card">
+        <span class="proj-status ${p.statusClass}">${p.statusText}</span>
+        <div class="proj-title">${p.title}</div>
+        ${p.type?`<div class="proj-type">${p.type}</div>`:''}
+        ${p.desc?`<p class="proj-desc">${p.desc}</p>`:''}
+        <div class="nda-row">
+          <button class="btn-primary" style="font-size:0.62rem;padding:0.55rem 1.2rem" onclick="openNDA(${JSON.stringify(p.title)})">Request Information</button>
+          <span class="nda-note">${p.note}</span>
+        </div>
+        <button class="entry-delete" onclick="deleteProject('${p.id}')">Delete project</button>
+      </div>`;
+    });
+  }
+
+  const filtered=currentFilter==='all'||currentFilter==='Current Projects'
+    ? entries
+    : entries.filter(e=>e.category===currentFilter);
+
+  // If only current projects shown and no entries, the projects already rendered above
+  if(currentFilter==='Current Projects'&&entries.length===0&&userProjects.length===0&&CONTENT.journalProjects.length===0){
+    grid.innerHTML=`<div class="cards-empty"><p>No projects yet — add one below.</p></div>`;
+    return;
+  }
+
+  filtered.forEach(e=>{
+    const readBtn=e.content
+      ? `<button class="card-action" onclick="openReading(${JSON.stringify(e.title)},${JSON.stringify(e.date)},${JSON.stringify(e.category)},${JSON.stringify(e.content)})">Read →</button>`
+      : '';
+    html+=`<article class="writing-card" data-category="${e.category}">
+      <div class="card-top">
+        <span class="card-category">${e.category}</span>
+        <span class="card-date">${e.date}</span>
+      </div>
+      <h3 class="card-title">${e.title}</h3>
+      ${e.excerpt?`<p class="card-excerpt">${e.excerpt}</p>`:''}
+      <div class="card-footer">
+        ${readBtn}
+        ${e.id?`<button class="entry-delete" onclick="deleteEntry('${e.id}')" style="margin-top:0">Delete</button>`:''}
+      </div>
+    </article>`;
+  });
+
+  if(!html&&currentFilter!=='Current Projects'){
+    html=`<div class="cards-empty"><p>Nothing here yet — add an entry below.</p></div>`;
+  }
+
+  grid.innerHTML=html;
+}
+
+/* ── RENDER FROM CONTENT ── */
+function render(){
+  const C=CONTENT;
+  document.title=C.site.name+' — '+C.site.tagline;
+  document.getElementById('nav-name').textContent=C.site.name;
+  document.getElementById('footer-copy').textContent='© '+C.site.copyright;
+  document.getElementById('footer-tagline').textContent=C.site.tagline;
+  document.getElementById('journal-footer-copy').textContent='© '+C.site.copyright;
+  document.getElementById('journal-footer-tagline').textContent=C.site.tagline;
+
+  document.getElementById('hero-eyebrow').textContent=C.hero.eyebrow;
+  document.getElementById('hero-name-display').innerHTML=C.site.name.replace(' ','<br>');
+  document.getElementById('hero-tagline').innerHTML=C.hero.tagline.replace('\n','<br>');
+  document.getElementById('hero-meta').innerHTML=C.hero.meta.map(m=>`<p>${m}</p>`).join('');
+
+  document.getElementById('about-headline').innerHTML=C.about.headline.replace(/\n/g,'<br>');
+  document.getElementById('about-tags').innerHTML=C.about.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('about-bio').innerHTML=
+    C.about.paragraphs.map(p=>`<p>${p}</p>`).join('')+
+    `<span class="about-availability">Open to UK &amp; International Opportunities</span>`;
+
+  document.getElementById('projects-list').innerHTML=C.projects.map(p=>`
+    <div class="project-card">
+      <span class="project-num">${p.number}</span>
+      <div>
+        <p class="project-type">${p.type}</p>
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-logline${p.loglineItalic?' italic':''}">${p.logline}</p>
+      </div>
+      <span class="project-badge">${p.status}</span>
+    </div>`).join('');
+
+  document.getElementById('credits-table').innerHTML=C.credits.map(c=>`
+    <div class="credit-row">
+      <span class="credit-title">${c.title}</span>
+      <span class="credit-format">${c.format}</span>
+      <span class="credit-role">${c.role}</span>
+      <span class="credit-year">${c.year}</span>
+    </div>`).join('');
+
+  document.getElementById('experience-grid').innerHTML=C.experience.map(e=>`
+    <div class="exp-item">
+      <h3 class="exp-org">${e.org}</h3>
+      <span class="exp-role-label">${e.role} &nbsp;·&nbsp; ${e.location}</span>
+      <p class="exp-desc">${e.desc}</p>
+      <p class="exp-date">${e.date}</p>
+    </div>`).join('');
+
+  document.getElementById('contact-statement').innerHTML=C.contact.statement;
+  const emailEl=document.getElementById('contact-email');
+  emailEl.href='mailto:'+C.site.email; emailEl.textContent=C.site.email;
+  document.getElementById('contact-linkedin').href=C.site.linkedin;
+  document.getElementById('contact-note').textContent=C.contact.note;
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded',()=>{
+  render();
+  renderCards();
+  initReveal();
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeReading(); closeNDA(); } });
+});
+</script>
+</body>
+</html>
